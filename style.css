@@ -1,0 +1,823 @@
+/* ==========================================
+   CHRONIX WEBSITE - MAIN STYLESHEET
+   Homepage + Download Page
+========================================== */
+
+/* GLOBAL VARIABLES */
+
+:root {
+    --bg: #080b17;
+    --panel: rgba(12, 18, 38, 0.92);
+    --blue: #278cff;
+    --purple: #7651ff;
+    --text: #ffffff;
+    --muted: #a5aec5;
+    --border: rgba(255,255,255,0.09);
+}
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: #080b17;
+    color: white;
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+/* ==========================================
+   HOMEPAGE
+========================================== */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        linear-gradient(
+            rgba(5, 10, 27, 0.65),
+            rgba(5, 10, 27, 0.85)
+        ),
+        url("assets/logo.png");
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #080b17;
+}
+
+.background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        transparent 10%,
+        rgba(3, 6, 18, 0.55) 100%
+    );
+}
+
+/* HEADER */
+
+header,
+.topbar {
+    width: 100%;
+    min-height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    background: rgba(5, 9, 24, 0.75);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(16px);
+
+    position: relative;
+    z-index: 5;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+nav a {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+/* MAIN */
+
+main,
+.hero {
+    min-height: calc(100vh - 75px);
+    display: flex;
+    align-items: center;
+    padding: 60px 8%;
+    position: relative;
+}
+
+/* HERO */
+
+.hero-content {
+    max-width: 650px;
+    animation: fadeUp 0.8s ease;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 8vw, 100px);
+    font-weight: 900;
+    letter-spacing: 5px;
+    line-height: 1;
+    text-shadow: 0 0 35px rgba(54,169,255,0.3);
+}
+
+.hero h1 span {
+    color: var(--blue);
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-top: 22px;
+}
+
+/* BUTTONS */
+
+button,
+.btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    padding: 15px 28px;
+    border-radius: 7px;
+
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+
+    background: linear-gradient(
+        110deg,
+        var(--blue),
+        var(--purple)
+    );
+
+    box-shadow: 0 0 25px rgba(54,169,255,0.2);
+    transition: 0.25s ease;
+}
+
+button:hover,
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 35px rgba(54,169,255,0.45);
+}
+
+/* PANELS */
+
+.panel,
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.25);
+    transition: 0.25s ease;
+}
+
+.panel:hover,
+.card:hover {
+    border-color: rgba(54,169,255,0.4);
+    transform: translateY(-3px);
+}
+
+/* TEXT */
+
+.subtitle,
+.muted {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   CHRONIX DOWNLOAD PAGE
+========================================== */
+
+body.download-page {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(39, 103, 190, 0.25),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 100% 50%,
+            rgba(118, 81, 255, 0.08),
+            transparent 50%
+        ),
+        #070b14;
+
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* DOWNLOAD NAVIGATION */
+
+.download-page .download-nav {
+    width: 100%;
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 7%;
+
+    background: rgba(5, 10, 22, 0.88);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(20px);
+
+    position: relative;
+    z-index: 10;
+}
+
+/* BRAND */
+
+.download-page .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: white;
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.download-page .brand img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+/* HOME LINK */
+
+.download-page .back-link {
+    color: #aebcda;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: 0.25s;
+}
+
+.download-page .back-link:hover {
+    color: var(--blue);
+}
+
+/* DOWNLOAD CONTAINER */
+
+.download-page main.download-container {
+    display: block;
+
+    width: 90%;
+    max-width: 1100px;
+
+    min-height: 0;
+    margin: 0 auto;
+
+    padding: 75px 0 30px;
+
+    text-align: center;
+}
+
+/* DOWNLOAD HERO */
+
+.download-page .download-hero {
+    width: 100%;
+    animation: fadeUp 0.8s ease;
+}
+
+/* VERSION LABEL */
+
+.download-page .version-label {
+    display: inline-block;
+
+    padding: 9px 19px;
+
+    border: 1px solid rgba(65,143,255,0.45);
+    border-radius: 30px;
+
+    background: rgba(39,140,255,0.09);
+
+    color: #83b6ff;
+
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+/* MAIN HEADING */
+
+.download-page .download-hero h1 {
+    display: block;
+    width: 100%;
+
+    margin: 25px 0 15px;
+
+    font-size: clamp(34px, 6vw, 65px);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -2px;
+
+    background: linear-gradient(
+        100deg,
+        #ffffff,
+        #9fc7ff,
+        #7b8cff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* DESCRIPTION */
+
+.download-page .download-description {
+    max-width: 600px;
+
+    margin: 0 auto 45px;
+
+    color: #a5b2ca;
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* GAME CARD */
+
+.download-page .game-card {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+    align-items: stretch;
+
+    overflow: hidden;
+
+    text-align: left;
+
+    background: rgba(15, 26, 48, 0.94);
+
+    border: 1px solid rgba(100,150,255,0.27);
+    border-radius: 19px;
+
+    box-shadow: 0 20px 80px rgba(0,0,0,0.4);
+}
+
+/* CHAPTER 2 SEASON 4 ARTWORK */
+
+.download-page .game-art {
+    width: 100%;
+    min-width: 0;
+    min-height: 380px;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(5,10,20,0.25),
+            transparent
+        ),
+        url("assets/chapter2s4.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* GAME DETAILS */
+
+.download-page .game-details {
+    min-width: 0;
+    padding: 42px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* STATUS */
+
+.download-page .status {
+    color: #65a5ff;
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+/* GAME TITLE */
+
+.download-page .game-details h2 {
+    margin: 18px 0 8px;
+
+    font-size: clamp(25px, 3vw, 36px);
+    line-height: 1.2;
+    font-weight: 900;
+}
+
+/* GAME SUBTITLE */
+
+.download-page .game-subtitle {
+    color: #9baac4;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* GAME INFORMATION */
+
+.download-page .game-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+
+    margin: 35px 0;
+}
+
+.download-page .game-info div {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.download-page .game-info small {
+    color: #7185a7;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.download-page .game-info strong {
+    color: white;
+    font-size: 13px;
+}
+
+/* DOWNLOAD BUTTON */
+
+.download-page .download-button {
+    width: 100%;
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 17px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        100deg,
+        #2869e8,
+        #7445e8
+    );
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 30px rgba(48,104,255,0.2);
+
+    transition: 0.25s;
+}
+
+.download-page .download-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 38px rgba(48,104,255,0.45);
+}
+
+/* DOWNLOAD NOTE */
+
+.download-page .download-note {
+    margin-top: 15px;
+
+    color: #8190aa;
+
+    font-size: 11px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* ==========================================
+   GETTING STARTED
+========================================== */
+
+.download-page .requirements {
+    width: 100%;
+
+    margin: 90px auto 0;
+
+    text-align: center;
+}
+
+.download-page .requirements h2 {
+    margin-bottom: 15px;
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+.download-page .requirements-description {
+    margin-bottom: 35px;
+
+    color: #9baac4;
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* REQUIREMENT GRID */
+
+.download-page .requirement-grid {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    align-items: stretch;
+    gap: 20px;
+}
+
+/* REQUIREMENT CARDS */
+
+.download-page .requirement {
+    min-width: 0;
+    min-height: 190px;
+
+    padding: 28px;
+
+    background: rgba(15,26,48,0.9);
+
+    border: 1px solid rgba(100,150,255,0.2);
+    border-radius: 14px;
+
+    text-align: left;
+
+    transition: 0.25s;
+}
+
+.download-page .requirement:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(54,169,255,0.55);
+
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+.download-page .requirement span {
+    color: #68a5ff;
+
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.download-page .requirement h3 {
+    margin: 17px 0 10px;
+
+    color: white;
+
+    font-size: 18px;
+}
+
+.download-page .requirement p {
+    color: #9baac4;
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.download-page .download-footer {
+    width: 100%;
+
+    padding: 65px 10px 30px;
+
+    color: #71819c;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    text-align: center;
+}
+
+.download-page .footer-brand {
+    margin-bottom: 12px;
+
+    color: white;
+
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+.download-page .download-footer p {
+    line-height: 1.8;
+}
+
+.download-page .download-footer a {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: #83b6ff;
+
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    transition: 0.25s;
+}
+
+.download-page .download-footer a:hover {
+    color: white;
+}
+
+/* ==========================================
+   TABLET RESPONSIVENESS
+========================================== */
+
+@media (max-width: 850px) {
+
+    .download-page main.download-container {
+        width: 92%;
+        padding-top: 55px;
+    }
+
+    .download-page .game-details {
+        padding: 28px;
+    }
+
+    .download-page .game-info {
+        gap: 20px;
+    }
+
+}
+
+/* ==========================================
+   MOBILE RESPONSIVENESS
+========================================== */
+
+@media (max-width: 650px) {
+
+    .download-page .download-nav {
+        min-height: 68px;
+        padding: 10px 5%;
+    }
+
+    .download-page .brand {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+
+    .download-page .brand img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .download-page main.download-container {
+        width: 92%;
+        padding-top: 45px;
+    }
+
+    .download-page .download-hero h1 {
+        font-size: 36px;
+        letter-spacing: -1px;
+    }
+
+    .download-page .download-description {
+        font-size: 13px;
+        margin-bottom: 30px;
+    }
+
+    .download-page .game-card {
+        grid-template-columns: 1fr;
+    }
+
+    .download-page .game-art {
+        min-height: 240px;
+    }
+
+    .download-page .game-details {
+        padding: 25px;
+    }
+
+    .download-page .game-details h2 {
+        font-size: 29px;
+    }
+
+    .download-page .game-info {
+        gap: 24px;
+        margin: 25px 0;
+    }
+
+    .download-page .requirements {
+        margin-top: 60px;
+    }
+
+    .download-page .requirement-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .download-page .requirement {
+        min-height: auto;
+        padding: 23px;
+    }
+
+    .download-page .download-footer {
+        padding-top: 45px;
+    }
+
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+}/* CHRONIX NAVIGATION LOGO */
+
+.brand-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+    mix-blend-mode: multiply;
+    background: transparent;
+}
+
+
+
+
+
+
+
